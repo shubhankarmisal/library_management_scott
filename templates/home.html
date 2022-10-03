@@ -1,0 +1,45 @@
+{% extends 'header1.html' %}
+
+{% block content %}
+
+<!-- Home Cards -->
+
+<section class="wrapper">
+    <div class="container-fostrap">
+        
+        <div class="content">
+            <div class="container">
+                <div class="row">
+                    {% for i in card %}
+                    <div class="col-xs-12 col-sm-4">
+                        <div class="card">
+                            <a class="img-card" href="http://www.fostrap.com/2016/03/bootstrap-3-carousel-fade-effect.html">
+                            <img src="../static/img/{{ i[5] }}" />
+                          </a>
+                            <div class="card-content">
+                                <h4 class="card-title">
+                                    <label class="title">Book Name : {{ i[1] }} </label>
+                                </h4>
+                                <h4 class="card-title">
+                                    <label class="title">Author Name : {{ i[2] }} </label>
+                                </h4>
+                                <h4 class="card-title">
+                                    <label class="title">Discription : {{ i[4] }} </label>
+                                </h4>
+                                
+                            </div>
+                            <div class="card-read-more">
+                               
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+  {% endblock %}

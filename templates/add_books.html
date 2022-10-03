@@ -1,0 +1,109 @@
+{% extends 'header2.html' %}
+
+{% block content %}
+<div class="container">
+    <div id="page-content-wrapper">
+        <div class="container-fluid p-lg-5">
+            <div class="row">
+                <div class="col-2">
+                    
+                </div>
+                <div class="col-10">
+                   <!-- Add Books Modal -->
+
+                    <!-- Button trigger modal -->
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        Add Books
+                    </button>
+
+                    <h5 class="py-2"> </h5>
+                    
+                    <!-- Add Books Table -->
+                     
+                    <div class="col-10">
+                        <h5 class="py-3">table:</h5>
+                        <div class="table-responsive">
+                            <table class="table table-striped">
+                                <thead class="table-info">
+                                <tr>
+                                    <th scope="col">id</th>
+                                    <th scope="col">book_name</th>
+                                    <th scope="col">author_name</th>
+                                    <th scope="col">date</th>
+                                    <th scope="col">image</th>
+                                    <th scope="col">description</th>
+                                    <th scope="col">Edit</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                {% for i in user %}
+                                <tr>
+                                    <th scope="row">{{ i[0] }}</th>
+                                    <td>{{ i[1] }}</td>
+                                    <td>{{ i[2] }}</td>
+                                    <td>{{ i[3] }}</td>
+                                    <td>{{ i[4] }}</td>
+                                    <td>{{ i[5] }}</td>
+                                    <td>
+                                        <a href="/edit/{{i[0]}}"><button type="submit" class="btn btn-success">Edit</button></a> |
+                                        <a href="/delete/{{i[0]}}"><button type="submit" class="btn btn-success">delete</button></a>
+                                    </td>
+    
+                                </tr>
+                                {% endfor %}
+       
+                                </tbody>
+                            </table>
+                        </div> 
+                    </div>
+                    
+                    <!-- Modal -->
+                <form action="" method="post">
+                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Add Books</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                              <div class="container">
+                                <div class="row">
+                                    <div class="col-12 mb-3">
+                                        <label for="add_bookstxt" classs="from-label">Book Name : </label>
+                                        <input type="text" class="form-control" name="add_bookstxt" id="add_bookstxt">
+                                    </div>
+                                    <div class="col-12 mb-3">
+                                        <label for="authortxt" classs="from-label">Author Name : </label>
+                                        <input type="text" class="form-control" name="authortxt" id="authortxt">
+                                    </div>
+                                    <div class="col-12 mb-3">
+                                        <label for="datetxt" classs="from-label">Date : </label>
+                                        <input type="date" class="form-control" name="datetxt" id="datetxt">
+                                    </div>
+                                    <div class="col-12 mb-3">
+                                        <label for="descriptiontxt" classs="from-label">Description : </label>
+                                        <textarea name="descriptiontxt" id="descriptiontxt" class="form-control" cols="30" rows="3"></textarea>
+                                    </div>
+                                    <div class="col-12 mb-3">
+                                        <label for="imgtxt" classs="from-label">Image : </label>
+                                        <input type="file" class="form-control" name="imgtxt" id="imgtxt">
+                                    </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="modal-footer">
+                            <button type="submit" class="btn btn-primary">Save</button>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                </form>       
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,42 @@
+{% extends 'header1.html' %}
+
+{% block content %}
+
+
+{% for i in user %}
+
+<form action="/update" method="post">
+    <input type="hidden" value="{{i[0]}}" name="id">
+    <div class="container">
+        <div class="modal-body">
+            <div class="container">
+            <div class="row">
+                <div class="col-12 mb-3">
+                    <label for="add_bookstxt" classs="from-label">Book Name : </label>
+                    <input type="text" value="{{i[1]}}" class="form-control" name="add_bookstxt" id="add_bookstxt">
+                </div>
+                <div class="col-12 mb-3">
+                    <label for="authortxt" classs="from-label">Author Name : </label>
+                    <input type="text" value="{{i[2]}}" class="form-control" name="authortxt" id="authortxt">
+                </div>
+                <div class="col-12 mb-3">
+                    <label for="datetxt" classs="from-label">Date : </label>
+                    <input type="date"  value="{{i[3]}}" class="form-control" name="datetxt" id="datetxt">
+                </div>
+                <div class="col-12 mb-3">
+                    <label for="descriptiontxt" classs="from-label">Description : </label>
+                    <textarea name="descriptiontxt"  value="" id="descriptiontxt" class="form-control" cols="30" rows="3">{{i[4]}}</textarea>
+                </div>
+                <div class="col-12 mb-3">
+                    <label for="imgtxt" classs="from-label">Image : </label>
+                    <input type="file" value="{{ i[5] }}" class="form-control" name="imgtxt" id="imgtxt">
+                </div>
+                <input type="submit">
+            </div>
+            </div>
+        </div>
+    </div>
+</form>
+{% endfor %}
+
+  {% endblock %}

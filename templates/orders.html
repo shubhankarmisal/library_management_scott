@@ -1,0 +1,48 @@
+{% extends 'header2.html' %}
+
+{% block content %}
+<div class="container">
+
+    <div id="page-content-wrapper">
+        <div class="container-fluid p-lg-5">
+            
+            <div class="row">
+                <div class="col-2">
+                    
+                </div>
+                <div class="col-10">
+                   <h5 class="py-2">Orders List:</h5>
+                   <div class="table-responsive">
+                    <table class="table table-striped">
+                        <thead class="table-info">
+                        <tr>
+                            <th scope="col">id</th>
+                            <th scope="col">book_name</th>
+                            <th scope="col">author_name</th>
+                            <th scope="col">date</th>
+                            <th scope="col">image</th>
+                            <th scope="col">description</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for i in user %}
+                        <tr>
+                            <th scope="row">{{ i[0] }}</th>
+                            <td>{{ i[1] }}</td>
+                            <td>{{ i[2] }}</td>
+                            <td>{{ i[3] }}</td>
+                            <td>{{ i[4] }}</td>
+                            <td>{{ i[5] }}</td>
+                        </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div> 
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+{% endblock %}
